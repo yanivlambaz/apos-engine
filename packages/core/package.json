@@ -1,0 +1,17 @@
+{
+  "name": "@apos/core",
+  "version": "0.1.0",
+  "description": "APOS Core Engine: the intelligence layer that plans, analyzes and prepares changes to existing websites.",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json"
+  },
+  "devDependencies": {
+    "typescript": "^6.0.3"
+  }
+}
