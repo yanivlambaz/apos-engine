@@ -13,10 +13,7 @@
 import { Analyzer } from "./analyzer/Analyzer.js";
 import { DeploymentPlanner } from "./deployment/DeploymentPlanner.js";
 import { Generator } from "./generator/Generator.js";
-import {
-  InMemoryVerticalPackRepository,
-  KnowledgeBase
-} from "./knowledge/KnowledgeBase.js";
+import { InMemoryVerticalPackRepository, KnowledgeBase } from "./knowledge/index.js";
 import { Planner } from "./planner/Planner.js";
 import { Validator } from "./validator/Validator.js";
 
@@ -84,8 +81,43 @@ export type { PlannerOptions } from "./planner/Planner.js";
 
 export { Analyzer } from "./analyzer/Analyzer.js";
 
-export { KnowledgeBase, InMemoryVerticalPackRepository } from "./knowledge/KnowledgeBase.js";
-export type { KnowledgeBaseOptions } from "./knowledge/KnowledgeBase.js";
+// APOS Knowledge Acquisition Engine (WP-005) and Vertical Pack loading (WP-003).
+export {
+  InMemoryVerticalPackRepository,
+  KnowledgeBase,
+  KnowledgeIndex,
+  KnowledgeLoader,
+  KnowledgeManager,
+  KnowledgeRegistry,
+  ProjectKnowledgeDirectorySource,
+  SOURCE_PRIORITY,
+  VerticalPackKnowledgeSource,
+  compareSourcePriority,
+  createPendingIndexEntry,
+  describeSourcePriority,
+  isHigherPriority
+} from "./knowledge/index.js";
+export type {
+  ExternalKnowledgeSource,
+  KnowledgeBaseOptions,
+  KnowledgeDocumentRef,
+  KnowledgeIndexEntry,
+  KnowledgeIndexEntryStatus,
+  KnowledgeIndexPort,
+  KnowledgeLoaderOptions,
+  KnowledgeLoaderPort,
+  KnowledgeManagerOptions,
+  KnowledgeRegistryPort,
+  KnowledgeSource,
+  KnowledgeSourceDescriptor,
+  KnowledgeSourceRecord,
+  KnowledgeSourceStatus,
+  KnowledgeSourceType,
+  LoadedKnowledgeSource,
+  ProjectKnowledgeDirectorySourceOptions,
+  SourcePriority,
+  VerticalPackKnowledgeSourceOptions
+} from "./knowledge/index.js";
 
 export { Generator } from "./generator/Generator.js";
 
