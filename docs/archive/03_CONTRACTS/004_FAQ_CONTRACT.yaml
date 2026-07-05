@@ -1,0 +1,250 @@
+contract:
+  id: CONTRACT-004
+
+  name: FAQ
+
+  version: 1.0
+
+  status: stable
+
+description: |
+  Canonical contract for every FAQ object within APOS.
+  A FAQ answers one specific user question.
+  Every FAQ exists as a reusable knowledge asset and may appear
+  in multiple pages without duplication.
+
+entity:
+
+  type: faq
+
+  required:
+
+    - id
+    - slug
+    - question
+    - answer
+    - topic
+    - category
+    - seo
+    - schema
+
+fields:
+
+  id:
+    type: uuid
+
+  slug:
+    type: string
+    unique: true
+
+  question:
+    type: string
+    minLength: 10
+    maxLength: 150
+
+  answer:
+    type: markdown
+
+  short_answer:
+    type: richtext
+    maxWords: 60
+
+  topic:
+    type: reference
+
+  category:
+    type: reference
+
+  intent:
+    enum:
+
+      - informational
+
+      - commercial
+
+      - transactional
+
+  priority:
+    enum:
+
+      - high
+
+      - medium
+
+      - low
+
+  related_questions:
+    type: reference
+
+  related_articles:
+    type: reference
+
+  related_guides:
+    type: reference
+
+  related_services:
+    type: reference
+
+  related_categories:
+    type: reference
+
+  seo:
+    type: object
+
+  schema:
+    type: object
+
+structure:
+
+  required:
+
+    - question
+
+    - short_answer
+
+    - detailed_answer
+
+    - practical_example
+
+    - next_step
+
+content:
+
+  minimum_words: 120
+
+  recommended_words: 250
+
+  maximum_words: 600
+
+  reading_level:
+
+    maximum: 8
+
+  examples:
+
+    minimum: 1
+
+seo:
+
+  h1:
+    exact: 1
+
+  title:
+    min: 45
+    max: 60
+
+  meta_description:
+    min: 120
+    max: 160
+
+  canonical:
+    required: true
+
+  faq_schema:
+    required: true
+
+internal_links:
+
+  outgoing:
+    minimum: 3
+
+  incoming:
+    minimum: 1
+
+ai:
+
+  explicit_answers:
+
+    - direct_answer
+
+    - explanation
+
+    - recommendation
+
+    - next_step
+
+  ambiguity:
+
+    allowed: false
+
+schema:
+
+  required:
+
+    - FAQPage
+
+    - Question
+
+    - Answer
+
+relationships:
+
+  required:
+
+    topic
+
+    category
+
+    related_articles
+
+    related_guides
+
+    related_services
+
+validation:
+
+  duplicate_questions:
+
+    allowed: false
+
+  duplicate_answers:
+
+    allowed: false
+
+  grammar:
+
+    required: true
+
+  seo:
+
+    required: true
+
+  schema:
+
+    required: true
+
+  ai:
+
+    required: true
+
+release:
+
+  block_if:
+
+    - missing_question
+
+    - missing_answer
+
+    - missing_schema
+
+    - duplicate_slug
+
+    - duplicate_question
+
+    - placeholder_content
+
+definition_of_done:
+
+  - Question completely answered
+
+  - FAQ reusable across platform
+
+  - SEO validated
+
+  - AI validated
+
+  - Schema validated
+
+  - Internal links validated
+
+  - Ready for publication

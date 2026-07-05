@@ -1,0 +1,324 @@
+contract:
+  id: CONTRACT-003
+
+  name: Pillar Guide
+
+  version: 1.0
+
+  status: stable
+
+description: |
+  Canonical contract for every Pillar Guide.
+  A Guide is the highest authority asset within a Knowledge Cluster.
+  Every Guide owns one complete topic and connects all supporting
+  educational assets.
+
+entity:
+
+  type: guide
+
+  required:
+
+    - id
+    - slug
+    - title
+    - summary
+    - topic
+    - introduction
+    - table_of_contents
+    - sections
+    - faq
+    - author
+    - seo
+    - schema
+
+fields:
+
+  id:
+    type: uuid
+
+  slug:
+    type: string
+    unique: true
+
+  title:
+    type: string
+    minLength: 30
+    maxLength: 80
+
+  summary:
+    type: richtext
+    maxWords: 120
+
+  topic:
+    type: reference
+
+  category:
+    type: reference
+
+  introduction:
+    type: markdown
+
+  table_of_contents:
+    type: generated
+
+  sections:
+    type: array
+    minimum: 8
+
+  faq:
+    type: reference
+    minimum: 20
+
+  author:
+    type: reference
+
+  related_articles:
+    type: reference
+    minimum: 8
+
+  related_guides:
+    type: reference
+
+  related_services:
+    type: reference
+    minimum: 3
+
+  glossary:
+    type: reference
+
+  downloads:
+    type: reference
+
+  seo:
+    type: object
+
+  schema:
+    type: object
+
+structure:
+
+  required:
+
+    - hero
+
+    - summary
+
+    - quick_answer
+
+    - table_of_contents
+
+    - definitions
+
+    - detailed_sections
+
+    - practical_examples
+
+    - mistakes
+
+    - checklist
+
+    - comparisons
+
+    - faq
+
+    - resources
+
+    - related_articles
+
+    - related_services
+
+    - cta
+
+content:
+
+  minimum_words: 3500
+
+  recommended_words: 6000
+
+  maximum_words: 10000
+
+  reading_level:
+    maximum: 9
+
+  examples:
+    minimum: 5
+
+  comparisons:
+    minimum: 2
+
+  checklists:
+    minimum: 1
+
+  tables:
+    minimum: 3
+
+  diagrams:
+    preferred: true
+
+seo:
+
+  h1:
+    exact: 1
+
+  h2:
+    minimum: 8
+
+  h3:
+    minimum: 15
+
+  title:
+    min: 45
+    max: 60
+
+  meta_description:
+    min: 140
+    max: 160
+
+  canonical:
+    required: true
+
+  guide_schema:
+    required: true
+
+  breadcrumb_schema:
+    required: true
+
+images:
+
+  minimum: 6
+
+  alt_text:
+    required: true
+
+internal_links:
+
+  outgoing:
+    minimum: 20
+
+  incoming:
+    minimum: 8
+
+cluster:
+
+  pillar:
+    required: true
+
+  supporting_articles:
+    minimum: 8
+
+  supporting_faq:
+    minimum: 20
+
+  supporting_comparisons:
+    minimum: 2
+
+  supporting_checklists:
+    minimum: 1
+
+ai:
+
+  explicit_answers:
+
+    - definition
+
+    - overview
+
+    - importance
+
+    - eligibility
+
+    - process
+
+    - requirements
+
+    - risks
+
+    - costs
+
+    - alternatives
+
+    - best_practices
+
+    - next_steps
+
+relationships:
+
+  required:
+
+    topic
+
+    category
+
+    articles
+
+    faq
+
+    glossary
+
+    services
+
+    downloads
+
+    author
+
+validation:
+
+  duplicate_content:
+    allowed: false
+
+  topical_completeness:
+    required: true
+
+  entity_coverage:
+    required: true
+
+  seo:
+    required: true
+
+  accessibility:
+    required: true
+
+  ai:
+    required: true
+
+  schema:
+    required: true
+
+release:
+
+  block_if:
+
+    - missing_table_of_contents
+
+    - missing_sections
+
+    - missing_faq
+
+    - missing_related_articles
+
+    - missing_related_services
+
+    - missing_schema
+
+    - duplicate_slug
+
+    - placeholder_content
+
+definition_of_done:
+
+  - Guide fully owns its topic
+
+  - Knowledge Cluster completed
+
+  - Related content connected
+
+  - SEO validated
+
+  - AI validated
+
+  - Accessibility validated
+
+  - Internal linking validated
+
+  - Ready for publication

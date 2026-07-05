@@ -1,0 +1,250 @@
+contract:
+  id: CONTRACT-001
+
+  name: Service
+
+  version: 1.0
+
+  status: stable
+
+description: |
+  Canonical contract for every Service entity inside APOS.
+  Every Service Page, Generator, Validator and Vertical Pack
+  MUST comply with this contract.
+
+entity:
+
+  type: service
+
+  required:
+
+    - id
+    - slug
+    - title
+    - summary
+    - description
+    - category
+    - primary_intent
+    - benefits
+    - process
+    - faq
+    - seo
+    - schema
+    - cta
+
+fields:
+
+  id:
+    type: uuid
+
+  slug:
+    type: string
+    unique: true
+
+  title:
+    type: string
+    minLength: 10
+    maxLength: 80
+
+  summary:
+    type: richtext
+    maxWords: 80
+
+  description:
+    type: markdown
+
+  category:
+    type: reference
+
+  primary_intent:
+    enum:
+
+      - informational
+      - commercial
+      - transactional
+
+  benefits:
+    type: array
+    minimum: 5
+
+  process:
+    type: array
+    minimum: 4
+    maximum: 7
+
+  faq:
+    type: reference
+    minimum: 15
+
+  reviews:
+    type: reference
+    minimum: 3
+
+  related_services:
+    type: reference
+    minimum: 2
+
+  related_articles:
+    type: reference
+    minimum: 3
+
+  related_guides:
+    type: reference
+    minimum: 2
+
+  cities:
+    type: reference
+
+  seo:
+    type: object
+
+  schema:
+    type: object
+
+  cta:
+    type: object
+
+seo:
+
+  h1:
+    exact: 1
+
+  title:
+    min: 45
+    max: 60
+
+  description:
+    min: 140
+    max: 160
+
+  canonical:
+    required: true
+
+  robots:
+    required: true
+
+  open_graph:
+    required: true
+
+  faq_schema:
+    required: true
+
+  breadcrumb_schema:
+    required: true
+
+  service_schema:
+    required: true
+
+content:
+
+  reading_level:
+
+    maximum: 8
+
+  paragraphs:
+
+    maximum_sentences: 4
+
+  lists:
+
+    preferred: true
+
+  tables:
+
+    preferred: true
+
+ai:
+
+  explicit_answers:
+
+    - what_is_it
+    - who_needs_it
+    - who_should_not_use_it
+    - benefits
+    - risks
+    - alternatives
+    - process
+    - pricing
+    - next_step
+
+relationships:
+
+  required:
+
+    homepage
+
+    category
+
+    faq
+
+    reviews
+
+    knowledge_cluster
+
+    guides
+
+    articles
+
+    related_services
+
+validation:
+
+  build:
+    required: true
+
+  lint:
+    required: true
+
+  typescript:
+    required: true
+
+  accessibility:
+    required: true
+
+  seo:
+    required: true
+
+  ai:
+    required: true
+
+  schema:
+    required: true
+
+  performance:
+    required: true
+
+release:
+
+  block_if:
+
+    - missing_h1
+
+    - missing_schema
+
+    - missing_faq
+
+    - duplicate_slug
+
+    - duplicate_title
+
+    - broken_links
+
+    - placeholder_content
+
+    - todo_comments
+
+definition_of_done:
+
+  - Service contract valid
+
+  - SEO contract valid
+
+  - AI contract valid
+
+  - Accessibility valid
+
+  - Performance valid
+
+  - Internal linking valid
+
+  - Release approved

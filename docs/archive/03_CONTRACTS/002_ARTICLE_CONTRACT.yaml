@@ -1,0 +1,274 @@
+contract:
+  id: CONTRACT-002
+
+  name: Knowledge Article
+
+  version: 1.0
+
+  status: stable
+
+description: |
+  Canonical contract for every educational article.
+  Articles exist to answer exactly one primary user intent.
+  They are the foundation of the Knowledge Center.
+
+entity:
+
+  type: article
+
+  required:
+
+    - id
+    - slug
+    - title
+    - summary
+    - primary_question
+    - answer
+    - content
+    - author
+    - category
+    - topic
+    - seo
+    - schema
+
+fields:
+
+  id:
+    type: uuid
+
+  slug:
+    type: string
+    unique: true
+
+  title:
+    type: string
+    minLength: 20
+    maxLength: 80
+
+  summary:
+    type: richtext
+    maxWords: 80
+
+  primary_question:
+    type: string
+
+  answer:
+    type: richtext
+    maxWords: 150
+
+  content:
+    type: markdown
+
+  author:
+    type: reference
+
+  topic:
+    type: reference
+
+  category:
+    type: reference
+
+  faq:
+    type: reference
+
+  related_articles:
+    type: reference
+    minimum: 3
+
+  related_guides:
+    type: reference
+    minimum: 2
+
+  related_services:
+    type: reference
+    minimum: 2
+
+  seo:
+    type: object
+
+  schema:
+    type: object
+
+structure:
+
+  required:
+
+    - hero
+
+    - quick_answer
+
+    - introduction
+
+    - table_of_contents
+
+    - main_sections
+
+    - practical_examples
+
+    - common_mistakes
+
+    - faq
+
+    - related_content
+
+    - cta
+
+seo:
+
+  h1:
+    exact: 1
+
+  h2:
+    minimum: 5
+
+  h3:
+    minimum: 8
+
+  title:
+    min: 45
+    max: 60
+
+  meta_description:
+    min: 140
+    max: 160
+
+  canonical:
+    required: true
+
+  article_schema:
+    required: true
+
+  breadcrumb_schema:
+    required: true
+
+content:
+
+  minimum_words: 1800
+
+  recommended_words: 3000
+
+  reading_level:
+    maximum: 8
+
+  examples:
+    minimum: 3
+
+  lists:
+    minimum: 4
+
+  tables:
+    preferred: true
+
+faq:
+
+  minimum: 10
+
+images:
+
+  minimum: 3
+
+  alt_text:
+    required: true
+
+internal_links:
+
+  outgoing:
+    minimum: 8
+
+  incoming:
+    minimum: 3
+
+ai:
+
+  explicit_answers:
+
+    - definition
+
+    - importance
+
+    - who_needs_it
+
+    - benefits
+
+    - risks
+
+    - alternatives
+
+    - practical_steps
+
+    - next_action
+
+relationships:
+
+  required:
+
+    topic
+
+    category
+
+    guide
+
+    faq
+
+    services
+
+    author
+
+validation:
+
+  duplicate_content:
+    allowed: false
+
+  thin_content:
+    allowed: false
+
+  plagiarism:
+    allowed: false
+
+  grammar:
+    required: true
+
+  accessibility:
+    required: true
+
+  seo:
+    required: true
+
+  ai:
+    required: true
+
+release:
+
+  block_if:
+
+    - missing_summary
+
+    - missing_question
+
+    - missing_quick_answer
+
+    - missing_schema
+
+    - missing_author
+
+    - missing_internal_links
+
+    - duplicate_slug
+
+    - placeholder_content
+
+definition_of_done:
+
+  - User intent fully answered
+
+  - Knowledge Cluster strengthened
+
+  - SEO validated
+
+  - AI validated
+
+  - Accessibility validated
+
+  - Internal links validated
+
+  - Ready for publication
