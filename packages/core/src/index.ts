@@ -94,6 +94,31 @@ export { Validator } from "./validator/Validator.js";
 export { DeploymentPlanner } from "./deployment/DeploymentPlanner.js";
 export type { DeploymentPlannerOptions } from "./deployment/DeploymentPlanner.js";
 
+// APOS Knowledge Object Model.
+export {
+  Article,
+  Category,
+  FAQ,
+  Guide,
+  Location,
+  Object,
+  ObjectRegistry,
+  Procedure,
+  Service
+} from "./objects/index.js";
+export type {
+  ObjectInput,
+  ObjectMetadata,
+  ObjectRegistryReader,
+  ObjectRelationship,
+  ObjectSnapshot,
+  ObjectStatus,
+  ObjectTimestamps,
+  ObjectValidationIssue,
+  ObjectValidationResult,
+  ObjectValidationSeverity
+} from "./objects/index.js";
+
 /**
  * The set of ports the {@link CoreEngine} coordinates.
  *
