@@ -151,6 +151,37 @@ export type {
   ObjectValidationSeverity
 } from "./objects/index.js";
 
+// APOS Expert Engine (WP-006): answers questions from approved knowledge only.
+export {
+  ConversationSession,
+  ExpertEngine,
+  InMemoryConversationRepository,
+  clampConfidence,
+  createCitation,
+  createConversationContext,
+  priorityForCitationSourceType
+} from "./expert/index.js";
+export type {
+  AddMessageOptions,
+  AnswerProviderInput,
+  AnswerProviderPort,
+  AnswerProviderResult,
+  Citation,
+  CitationSourceType,
+  Conversation,
+  ConversationContext,
+  ConversationMessage,
+  ConversationRepositoryPort,
+  ConversationRole,
+  ConversationSessionOptions,
+  ConversationState,
+  CreateCitationInput,
+  CreateConversationContextOptions,
+  ExpertEngineOptions,
+  ExpertResponse,
+  KnowledgeRetrievalPort
+} from "./expert/index.js";
+
 /**
  * The set of ports the {@link CoreEngine} coordinates.
  *
