@@ -1,0 +1,15 @@
+# APOS Work Package Status
+
+| WP | Title | Status | Owner |
+|----|-------|--------|-------|
+| WP-001 | Runtime Foundation | Completed | Engineering |
+| WP-002 | Work Package System | Planned | Product |
+
+Status Values
+
+- Draft
+- Approved
+- In Progress
+- QA
+- Completed
+- Rejected
