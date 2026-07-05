@@ -182,6 +182,45 @@ export type {
   KnowledgeRetrievalPort
 } from "./expert/index.js";
 
+// APOS Authority Intelligence Engine (WP-007): decides whether a completed
+// conversation should become a permanent Authority Asset. Never generates
+// content or pages.
+export {
+  AuthorityIntelligenceEngine,
+  ConservativeAuthorityDecisionPolicy,
+  InMemoryRecommendationRepository,
+  NoOpDuplicateDetector,
+  SearchIntentAnalyzer,
+  UnknownCoverageAnalyzer,
+  ZeroAuthorityScorer,
+  clampUnitInterval
+} from "./intelligence/index.js";
+export type {
+  AuthorityDecision,
+  AuthorityDecisionInput,
+  AuthorityDecisionOutput,
+  AuthorityDecisionPolicyPort,
+  AuthorityIntelligenceEngineOptions,
+  AuthorityRecommendation,
+  AuthorityRecommendationEvidence,
+  AuthorityScore,
+  AuthorityScoreDimensions,
+  AuthorityScorerPort,
+  AuthorityScoringInput,
+  CoverageAnalyzerPort,
+  CoverageResult,
+  CoverageStatus,
+  DuplicateDetectionResult,
+  DuplicateDetectorPort,
+  DuplicateMatch,
+  RecommendationRepositoryPort,
+  SearchIntentAnalysis,
+  SearchIntentAnalyzerOptions,
+  SearchIntentClassification,
+  SearchIntentClassifierPort,
+  SearchIntentType
+} from "./intelligence/index.js";
+
 /**
  * The set of ports the {@link CoreEngine} coordinates.
  *
